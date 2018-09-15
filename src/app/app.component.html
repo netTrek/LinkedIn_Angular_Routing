@@ -3,7 +3,10 @@
   Welcome to {{ title }}!
 </h1>
 
-<nav></nav>
+<nav>
+  <a [routerLink]="['home']">home</a> |
+  <a routerLink="user">user</a>
+</nav>
 
 <router-outlet></router-outlet>
 

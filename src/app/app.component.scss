@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+}
+footer {
+  position: fixed;
+  top: calc(100vh - 30px);
+  a {
+    text-decoration: none;
+    img {
+      height: 24px;
+    }
+  }
+}

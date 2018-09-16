@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   goHome () {
     // this.router.navigateByUrl( '/home' );
     this.router.navigate( ['/home'], {
-      relativeTo: this.route
+      skipLocationChange: true
     } );
   }
 }

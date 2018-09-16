@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.sub1 = this.route.queryParams.subscribe( console.log );
-    this.sub2 = this.route.queryParamMap.subscribe( map => {
+    this.sub1 = this.route.params.subscribe( console.log );
+    this.sub2 = this.route.paramMap.subscribe( map => {
       if ( map.has( 'test') ) {
         console.log ( 'habe test: ', map.get( 'test') );
       }

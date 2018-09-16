@@ -7,9 +7,11 @@
   <a [routerLink]="['home']"
      routerLinkActive="active">home</a> |
 
-  <a routerLink="user"
-     [queryParams]="{test: 1234}"
-     routerLinkActive="active">user</a>
+  <a [routerLink]="['user']"
+     routerLinkActive="active">user</a> |
+
+  <a [routerLink]="['user', 123, 'saban ünlü']"
+     routerLinkActive="active">saban ünlü</a>
 </nav>
 
 <router-outlet></router-outlet>

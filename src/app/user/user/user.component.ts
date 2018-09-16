@@ -19,7 +19,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   goHome () {
     // this.router.navigateByUrl( '/home' );
-    this.router.navigate ( [ '/home', 123,  ], {
+    this.router.navigate ( [ '/home', {id: 4711, name: 'Peter Müller', test: 'hello wolrd'} ], {
     } );
   }
 

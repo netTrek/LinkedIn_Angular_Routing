@@ -6,16 +6,9 @@
 <nav>
   <a [routerLink]="['home']"
      routerLinkActive="active">home</a> |
-  <a [routerLink]="['home']"
-     fragment="test1"
-     routerLinkActive="active">
-    home #test1</a> |
-  <a [routerLink]="['home']"
-     fragment="test2"
-     routerLinkActive="active">
-    home #test2</a> |
+
   <a routerLink="user"
-     preserveFragment="true"
+     [queryParams]="{test: 1234}"
      routerLinkActive="active">user</a>
 </nav>
 

@@ -12,18 +12,13 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit () {
-    this.route.fragment.subscribe (
-      next => {
-        console.log ( next );
-      }
-    );
   }
 
   goHome () {
     // this.router.navigateByUrl( '/home' );
     this.router.navigate ( [ '/home' ], {
-      fragment: 'test1',
-      relativeTo: this.route
+      queryParams: {id: 4711, name: 'Peter Müller'},
+      queryParamsHandling: 'merge'
     } );
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'in-user',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
   }
 
+  goHome () {
+    // this.router.navigateByUrl( '/home' );
+    this.router.navigate( ['/home'], {
+      relativeTo: this.route
+    } );
+  }
 }

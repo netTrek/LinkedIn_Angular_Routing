@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'in-home',
@@ -8,10 +9,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
+  cookieAccepted = false;
+
   private sub1: Subscription;
   private sub2: Subscription;
 
-  constructor( private route: ActivatedRoute ) { }
+  constructor( private route: ActivatedRoute, public userService: UserService  ) { }
 
   ngOnInit() {
 
@@ -27,6 +31,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy (): void {
     this.sub1.unsubscribe();
     this.sub2.unsubscribe();
+  }
+
+  acceptCookie () {
+    this.cookieAccepted = true;
   }
 
 }

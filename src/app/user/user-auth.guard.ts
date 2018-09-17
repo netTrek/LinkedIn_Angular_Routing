@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
+import { HomeComponent } from '../home/home/home.component';
 
-@Injectable({
+@Injectable ( {
   providedIn: 'root'
-})
-export class UserAuthGuard implements CanActivate, CanActivateChild {
+} )
+export class UserAuthGuard implements CanActivate, CanActivateChild, CanDeactivate<HomeComponent> {
 
-  constructor ( private userService: UserService, private router: Router ) {}
+  constructor ( private userService: UserService, private router: Router ) {
+  }
 
-  canActivate(
+  canActivate (
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    console.log ( 'check permission' );
-    if ( !this.userService.loggedIn ) {
-      this.router.navigate( ['/home'] );
+    state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+    if ( ! this.userService.loggedIn ) {
+      this.router.navigate ( [ '/home' ] );
     }
     return true;
   }
 
   canActivateChild ( childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
-    return false;
+    return true;
+  }
+
+  canDeactivate ( component: HomeComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+    return component.cookieAccepted;
   }
 }

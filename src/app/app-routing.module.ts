@@ -13,7 +13,8 @@ import { UserAuthGuard } from './user/user-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent,
+    canDeactivate: [ UserAuthGuard ] },
   {
     path   : 'user', component: UserComponent,
     canActivate: [ UserAuthGuard ],
@@ -35,9 +36,9 @@ const routes: Routes = [
   },
   {
     path    : 'contact', component: ContactComponent,
-    canActivateChild: [ UserAuthGuard ],
+    // canActivateChild: [ UserAuthGuard ],
     children: [
-      // { path: '', redirectTo: 'map', pathMatch: 'full' },
+      { path: '', redirectTo: 'map', pathMatch: 'full' },
       { path: 'map', component: MapComponent },
       { path: 'form', component: FormComponent }
     ]

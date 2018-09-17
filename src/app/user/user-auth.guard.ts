@@ -25,7 +25,9 @@ export class UserAuthGuard implements CanActivate, CanActivateChild, CanDeactiva
     return true;
   }
 
-  canDeactivate ( component: HomeComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+  canDeactivate ( component: HomeComponent,
+                  currentRoute: ActivatedRouteSnapshot,
+                  currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
     return component.cookieAccepted;
   }
 }

@@ -10,7 +10,7 @@ import { UserService } from '../../user/user.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  cookieAccepted = false;
+  cookieAccepted = true;
 
   private sub1: Subscription;
   private sub2: Subscription;

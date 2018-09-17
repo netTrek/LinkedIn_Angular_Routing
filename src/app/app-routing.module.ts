@@ -43,6 +43,7 @@ const routes: Routes = [
       { path: 'form', component: FormComponent }
     ]
   },
+  { path: 'dash', loadChildren: './dash/dash.module#DashModule'},
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -15,6 +15,8 @@ export class UserService {
     { age: 44, name: 'Saban Ünlü' }
   ];
 
+  loggedIn = true;
+
   constructor () {
   }
 
@@ -25,7 +27,7 @@ export class UserService {
   }
 
   getUsers (): Observable<User[]> {
-    return interval ( 1500 )
+    return interval ( 250 )
       .pipe (
         first (),
         switchMap ( next => {

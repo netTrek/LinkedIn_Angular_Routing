@@ -9,12 +9,14 @@ import { FormComponent } from './contact/contact/form/form.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { UserGuard } from './user/user.guard';
 import { UserdetailGuard } from './user/userdetail.guard';
+import { UserAuthGuard } from './user/user-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
     path   : 'user', component: UserComponent,
+    canActivate: [ UserAuthGuard ],
     resolve: {
       userlist: UserGuard
     },
@@ -26,6 +28,7 @@ const routes: Routes = [
   },
   {
     path   : 'user/:name', component: UserDetailsComponent,
+    canActivate: [ UserAuthGuard ],
     resolve: {
       user: UserdetailGuard
     }

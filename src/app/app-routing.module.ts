@@ -35,8 +35,9 @@ const routes: Routes = [
   },
   {
     path    : 'contact', component: ContactComponent,
+    canActivateChild: [ UserAuthGuard ],
     children: [
-      { path: '', redirectTo: 'map', pathMatch: 'full' },
+      // { path: '', redirectTo: 'map', pathMatch: 'full' },
       { path: 'map', component: MapComponent },
       { path: 'form', component: FormComponent }
     ]

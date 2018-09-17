@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthGuard implements CanActivate {
+export class UserAuthGuard implements CanActivate, CanActivateChild {
 
   constructor ( private userService: UserService, private router: Router ) {}
 
@@ -18,5 +18,9 @@ export class UserAuthGuard implements CanActivate {
       this.router.navigate( ['/home'] );
     }
     return true;
+  }
+
+  canActivateChild ( childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+    return false;
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { User } from '../user';
 
 @Component({
   selector: 'in-user-details',
@@ -10,19 +11,15 @@ import { filter, map } from 'rxjs/operators';
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
 
-  username: string;
+  user: User;
   private sub: Subscription;
 
   constructor ( private router: Router, private route: ActivatedRoute ) {
   }
 
   ngOnInit () {
-    this.sub = this.route.paramMap.
-      pipe(
-        filter( paramMap => paramMap.has ('name')),
-      map( paramMap => paramMap.get( 'name') )
-      ).
-    subscribe ( next => this.username = next );
+    this.sub = this.route.data.
+    subscribe ( next => this.user = next.user as User );
   }
 
 

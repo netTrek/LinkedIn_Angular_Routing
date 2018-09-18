@@ -7,6 +7,7 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { UserGuard } from './user/user.guard';
 import { UserdetailGuard } from './user/userdetail.guard';
 import { UserAuthGuard } from './user/user-auth.guard';
+import { ModalAComponent } from './modal/modal-a/modal-a.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,6 +38,7 @@ const routes: Routes = [
     path: 'contact', loadChildren: './contact/contact.module#ContactModule'
   },
   { path: 'dash', loadChildren: './dash/dash.module#DashModule' },
+  { path: 'modalA', component: ModalAComponent, outlet: 'modal' },
   { path: '**', component: NotFoundComponent }
 ];
 

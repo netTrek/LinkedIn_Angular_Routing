@@ -5,3 +5,9 @@
 
 
 <button *ngIf="!cookieAccepted" (click)="acceptCookie()">accept cookie</button>
+
+<button (click)="openModal()">open modal a</button>
+
+<!--
+<a [routerLink]="[ { outlets: { modal: ['modalA'] } } ]">open Modal</a>
+-->

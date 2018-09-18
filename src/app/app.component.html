@@ -31,3 +31,14 @@
     <img src="../assets/img/github.png" alt="github">
   </a>
 </footer>
+
+
+<div class="modal" [style.display]="showModal?'block':'none'">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <router-outlet name="modal"></router-outlet>
+  </div>
+
+</div>

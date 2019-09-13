@@ -1,0 +1,16 @@
+<ng-content select="in-user-list-header"></ng-content>
+<ng-content select="in-user-list-sub-header"></ng-content>
+<ng-content select="in-user-list-info"></ng-content>
+
+<!--
+<h4>{{userList.myServiceValue}}</h4>
+-->
+<a *ngFor="let user of users; even as e"
+   [routerLink]="[ user.name ]"
+>
+  <in-user-name [user]="user"
+                [isSelected]="selectedUsr===user"
+                [ngClass]="{even: e}"
+                (selectUsr)="onSelectedUsr ( $event )"
+  ></in-user-name>
+</a>
